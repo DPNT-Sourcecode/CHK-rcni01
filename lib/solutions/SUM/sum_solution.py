@@ -8,4 +8,3 @@ class SumSolution:
             raise ValueError("Both numbers should be between 0 and 100 inclusive")
 
         return x + y
-
