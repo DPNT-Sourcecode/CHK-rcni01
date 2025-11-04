@@ -5,4 +5,3 @@ class HelloSolution:
     @staticmethod
     def hello(friend_name: str) -> str:
         return f"Hello, World!"
-

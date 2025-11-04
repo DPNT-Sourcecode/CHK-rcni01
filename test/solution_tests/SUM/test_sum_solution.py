@@ -12,4 +12,3 @@ class TestSum():
 
         with pytest.raises(ValueError, match="Both numbers should be between 0 and 100 inclusive"):
             SumSolution().compute(4, -10)
-
