@@ -8,7 +8,8 @@ class TestSum():
 
     def test_sum_when_param_is_out_of_bounds(self):
         with pytest.raises(ValueError, match="Both numbers should be between 0 and 100 inclusive"):
-            SumSolution.compute(150, 10)
+            SumSolution().compute(150, 10)
 
         with pytest.raises(ValueError, match="Both numbers should be between 0 and 100 inclusive"):
-            SumSolution.compute(4, -10)
+            SumSolution().compute(4, -10)
+
