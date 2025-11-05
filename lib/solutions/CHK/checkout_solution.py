@@ -17,10 +17,12 @@ class CheckoutSolution:
             "B": [2, 45]
         }  
 
-        for (sku in skus)
+        for sku in skus:
+            if sku not in prices:
+                return -1
 
 
-        return -1
+        return 0
 
 
 
