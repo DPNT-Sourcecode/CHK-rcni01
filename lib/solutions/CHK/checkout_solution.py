@@ -34,8 +34,8 @@ class CheckoutSolution:
                 offerCount, offerPrice = offers[sku]
                 offerGroups: int = math.floor(count / offerCount)
                 amountNotInOffer: int = count - offerGroups * offerCount
-                total = total + offerGroups * offerPrice + amountNotInOffer 
-
-        
+                total = total + offerGroups * offerPrice + amountNotInOffer * prices[sku]
+            else:
+                total = total + count * prices[sku]
 
         return total
