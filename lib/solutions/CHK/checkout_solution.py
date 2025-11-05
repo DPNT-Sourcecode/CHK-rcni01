@@ -15,9 +15,13 @@ class CheckoutSolution:
         offers: Dict[str, Tuple[int, int]] = {
             "A": [3, 130],
             "B": [2, 45]
-        }
+        }  
+
+        for (sku in skus)
+
 
         return -1
+
 
 
 
