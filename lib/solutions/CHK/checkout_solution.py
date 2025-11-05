@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import Dict, Tuple
 
 class CheckoutSolution:
 
@@ -12,8 +12,12 @@ class CheckoutSolution:
             "D": 15
         }
 
-        
+        offers: Dict[str, Tuple[int, int]] = {
+            "A": [3, 130],
+            "B": [2, 45]
+        }
 
         return -1
+
 
 
