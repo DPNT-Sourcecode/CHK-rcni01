@@ -31,7 +31,8 @@ class CheckoutSolution:
         for sku, count in skuCounts.items():
             if sku in offers:
                 offerCount, offerPrice = offers[sku]
-                
+                offerGroups: int = count // offerCount
+                print(offerGroups)
 
         
 
