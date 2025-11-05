@@ -23,6 +23,7 @@ class CheckoutSolution:
             if sku not in prices:
                 return -1
 
+        
 
         return 0
 
