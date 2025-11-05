@@ -1,4 +1,5 @@
 from typing import Dict, Tuple
+from collections import Counter
 
 class CheckoutSolution:
 
@@ -23,14 +24,15 @@ class CheckoutSolution:
             if sku not in prices:
                 return -1
 
-        skuCounts: Counter[]
-            
+        skuCounts: Counter[str] = Counter(skus)
+
+        total: int = 0
+        
+        for sku, count in skuCounts.items():
+            if sku in offers:
+                offerCount, offerPrice = offers[sku]
+                
 
         
 
-        return 0
-
-
-
-
-
+        return total
