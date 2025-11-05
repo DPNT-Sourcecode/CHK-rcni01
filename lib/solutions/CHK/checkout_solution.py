@@ -26,7 +26,7 @@ class CheckoutSolution:
         total: int = 0
 
         if "A" in skuCounts:
-            countA = skuCounts["A"]
+            countA: int = skuCounts["A"]
             firstOfferGroups: int = math.floor(countA / 5)
             total = total + firstOfferGroups * 200
             remainder: int = countA - firstOfferGroups * 5
@@ -36,15 +36,18 @@ class CheckoutSolution:
             total = total + remainder * 50                
         
         if "E" in skuCounts and "B" in skuCounts:
-            countE = skuCounts["E"]
-            freeB = 
+            countE: int = skuCounts["E"]
+            freeB: int = math.floor(countE / 2)
+            skuCounts["B"] = max(0, skuCounts["B"] - freeB)
 
         if "B" in skuCounts:
-            countB = skuCounts["B"]
+            countB: int = skuCounts["B"]
             offerGroups: int = math.floor(countB / 2)
             remainder: int = countB - offerGroups * 2
             total = total + offerGroups * 45 + remainder * 30
 
+        for sku in ["C", "D", "E"]:
+            total = total + skuCounts[sku] * prices[sku]
 
         return total
 
