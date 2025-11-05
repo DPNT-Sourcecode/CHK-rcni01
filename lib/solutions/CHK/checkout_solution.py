@@ -5,7 +5,7 @@ import math
 class CheckoutSolution:
 
     # skus = unicode string
-    def checkout(self, skus) -> int:
+    def checkoutR1(self, skus) -> int:
         if type(skus) != str:
             return -1
         
@@ -13,14 +13,13 @@ class CheckoutSolution:
             "A": 50,
             "B": 30,
             "C": 20,
-            "D": 15,
-            "E": 40
+            "D": 15
         }
 
         offers: Dict[str, Tuple[int, int]] = {
             "A": [3, 130],
             "B": [2, 45]
-        }  
+        }
 
         for sku in skus:
             if sku not in prices:
@@ -40,4 +39,5 @@ class CheckoutSolution:
                 total = total + count * prices[sku]
 
         return total
+
 
