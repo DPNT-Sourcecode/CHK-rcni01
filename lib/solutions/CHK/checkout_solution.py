@@ -26,6 +26,10 @@ class CheckoutSolution:
         total: int = 0
 
         if "A" in skuCounts:
-            f
+            countA = skuCounts("A")
+            firstOfferGroups: int = math.floor(countA / 5)
+            firstRemainder: int = countA - firstOfferGroups * 5
+            if first
 
         return total
+
