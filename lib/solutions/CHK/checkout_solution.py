@@ -23,9 +23,13 @@ class CheckoutSolution:
             if sku not in prices:
                 return -1
 
+        skuCounts: Counter[]
+            
+
         
 
         return 0
+
 
 
 
