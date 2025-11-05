@@ -13,7 +13,8 @@ class CheckoutSolution:
             "A": 50,
             "B": 30,
             "C": 20,
-            "D": 15
+            "D": 15,
+            "E": 40
         }
 
         offers: Dict[str, Tuple[int, int]] = {
@@ -39,3 +40,4 @@ class CheckoutSolution:
                 total = total + count * prices[sku]
 
         return total
+
