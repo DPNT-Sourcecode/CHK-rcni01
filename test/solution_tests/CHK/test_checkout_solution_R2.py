@@ -31,4 +31,13 @@ class TestCheckout():
         assert CheckoutSolution().checkout("BAABBABAA") == 290
 
     def test_correct_return_for_sku_EEB(self):
-        assert CheckoutSolution().checkout("BAABBABAA") == 290
+        assert CheckoutSolution().checkout("EEB") == 80
+    
+    def test_correct_return_for_sku_EEEEB(self):
+        assert CheckoutSolution().checkout("EEEEB") == 160
+    
+    def test_correct_return_for_sku_ABCDE(self):
+        assert CheckoutSolution().checkout("ABCDE") == 155   
+    
+    def test_correct_return_for_sku_AAAAAEEBB(self):
+        assert CheckoutSolution().checkout("AAAAAEEBB") == 310   
