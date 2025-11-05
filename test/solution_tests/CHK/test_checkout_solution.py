@@ -19,4 +19,7 @@ class TestCheckout():
         assert CheckoutSolution().checkout("AAABBBCCD") == 260
     
     def test_correct_return_for_sku_AAAAAAA(self):
-        assert CheckoutSolution().checkout("AAABBBCCD") == 310
+        assert CheckoutSolution().checkout("AAAAAAA") == 310
+
+    def test_correct_return_for_sku_ABCABABDA(self):
+        assert CheckoutSolution().checkout("ABCABABDA") == 290
