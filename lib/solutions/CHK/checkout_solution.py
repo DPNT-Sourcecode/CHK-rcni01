@@ -50,5 +50,3 @@ class CheckoutSolution:
             total = total + skuCounts[sku] * prices[sku]
 
         return total
-
-
