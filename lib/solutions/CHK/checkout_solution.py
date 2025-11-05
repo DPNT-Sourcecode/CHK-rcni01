@@ -3,7 +3,9 @@ from typing import Dict, Tuple
 class CheckoutSolution:
 
     # skus = unicode string
-    def checkout(self, skus: str) -> int:
+    def checkout(self, skus) -> int:
+        if type(skus) != str:
+            return -1
         
         prices: Dict[str, int] = {
             "A": 50,
