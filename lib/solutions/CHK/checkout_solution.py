@@ -1,5 +1,6 @@
 from typing import Dict, Tuple
 from collections import Counter
+import math
 
 class CheckoutSolution:
 
@@ -31,8 +32,9 @@ class CheckoutSolution:
         for sku, count in skuCounts.items():
             if sku in offers:
                 offerCount, offerPrice = offers[sku]
-                offerGroups: int = count // offerCount
-                print(offerGroups)
+                offerGroups: int = math.floor(count / offerCount)
+                amountNotInOffer: int = count - offerGroups * offerCount
+                total = total + offerGroups * offerPrice + amountNotInOffer 
 
         
 
