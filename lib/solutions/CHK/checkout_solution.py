@@ -27,9 +27,12 @@ class CheckoutSolution:
 
         if "A" in skuCounts:
             countA = skuCounts("A")
-            firstOfferGroups: int = math.floor(countA / 5)
-            firstRemainder: int = countA - firstOfferGroups * 5
-            if first
+            firstOfferGroups: int = math.floor(countA / 5) 
+            firstRemainder: int = countA - firstOfferGroups * 5 # less than 5
+            if firstRemainder >= 3:
+                
+            
 
         return total
+
 
