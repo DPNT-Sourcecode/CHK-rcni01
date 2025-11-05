@@ -4,8 +4,8 @@ import math
 
 class CheckoutSolution:
 
-    # skus = unicode string
-    def checkoutR1(self, skus) -> int:
+    # CHK_R1 answer
+    def checkout(self, skus) -> int:
         if type(skus) != str:
             return -1
         
@@ -39,5 +39,3 @@ class CheckoutSolution:
                 total = total + count * prices[sku]
 
         return total
-
-
