@@ -29,12 +29,17 @@ class CheckoutSolution:
             countA = skuCounts["A"]
             firstOfferGroups: int = math.floor(countA / 5)
             total = total + firstOfferGroups * 200
-            remainder: int = countA - firstOfferGroups * 5 # less than 5
+            remainder: int = countA - firstOfferGroups * 5
             if remainder >= 3:
                 total = total + 130
                 remainder = remainder - 3
             total = total + remainder * 50                
-            
+        
+        if "B" in skuCounts:
+            countB = skuCounts["B"]
+            offerGroups: int = math.floor(countB / 2)
+            remainder: int = countB - offerGroups * 2
+            total = total + offerGroups * 45 + remainder * 30
 
         return total
 

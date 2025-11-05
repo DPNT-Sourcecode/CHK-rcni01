@@ -20,3 +20,9 @@ class TestCheckout():
     
     def test_correct_return_for_sku_AAAA(self):
         assert CheckoutSolution().checkout("AAAA") == 180
+
+    def test_correct_return_for_sku_BBB(self):
+        assert CheckoutSolution().checkout("BBB") == 75
+
+    def test_correct_return_for_sku_BBBBB(self):
+        assert CheckoutSolution().checkout("BBBBB") == 120
