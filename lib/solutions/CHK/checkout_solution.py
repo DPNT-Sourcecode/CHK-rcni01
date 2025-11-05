@@ -35,11 +35,16 @@ class CheckoutSolution:
                 remainder = remainder - 3
             total = total + remainder * 50                
         
+        if "E" in skuCounts and "B" in skuCounts:
+            countE = skuCounts["E"]
+            freeB = 
+
         if "B" in skuCounts:
             countB = skuCounts["B"]
             offerGroups: int = math.floor(countB / 2)
             remainder: int = countB - offerGroups * 2
             total = total + offerGroups * 45 + remainder * 30
+
 
         return total
 
