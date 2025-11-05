@@ -26,7 +26,7 @@ class CheckoutSolution:
         total: int = 0
 
         if "A" in skuCounts:
-            countA = skuCounts("A")
+            countA = skuCounts["A"]
             firstOfferGroups: int = math.floor(countA / 5)
             total = total + firstOfferGroups * 200
             remainder: int = countA - firstOfferGroups * 5 # less than 5
