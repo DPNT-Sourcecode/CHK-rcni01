@@ -2,23 +2,29 @@ from typing import Dict, Tuple
 from collections import Counter
 import math
 
+PRICES: Dict[str, int] = {
+    "A": 50, "B": 30, "C": 20, "D": 15, "E": 40, "F": 10,
+    "G": 20, "H": 10, "I": 35, "J": 60, "K": 80, "L": 90,
+    "M": 15, "N": 40, "O": 10, "P": 50, "Q": 30, "R": 50,
+    "S": 30, "T": 20, "U": 40, "V": 50, "W": 20, "X": 90,
+    "Y": 10, "Z": 50
+}
+
+
+
 class CheckoutSolution:
+
+
 
     # CHK_R2 answer
     def checkout(self, skus) -> int:
         if type(skus) != str:
             return -1
         
-        prices: Dict[str, int] = {
-            "A": 50, "B": 30, "C": 20, "D": 15, "E": 40, "F": 10,
-            "G": 20, "H": 10, "I": 35, "J": 60, "K": 80, "L": 90,
-            "M": 15, "N": 40, "O": 10, "P": 50, "Q": 30, "R": 50,
-            "S": 30, "T": 20, "U": 40, "V": 50, "W": 20, "X": 90,
-            "Y": 10, "Z": 50
-        }
+
 
         for sku in skus:
-            if sku not in prices:
+            if sku not in PRICES:
                 return -1
 
         skuCounts: Counter[str] = Counter(skus)
@@ -54,6 +60,6 @@ class CheckoutSolution:
             total = total + offerGroups * 45 + remainder * 30
 
         for sku in ["C", "D", "E"]:
-            total = total + skuCounts[sku] * prices[sku]
+            total = total + skuCounts[sku] * PRICES[sku]
 
-        return total
+        return total
