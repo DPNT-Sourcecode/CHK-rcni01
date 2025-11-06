@@ -59,7 +59,7 @@ class TestCheckout:
         assert CheckoutSolution().checkout("BAABBABAA") == 290
         assert CheckoutSolution().checkout("WWY") == 60
         assert CheckoutSolution().checkout("STXZ") == 62 
-        assert CheckoutSolution().checkout("SSSTTXYYZZ") == 138
+        assert CheckoutSolution().checkout("SSSTTXYYZZ") == 152
 
     def test_edge_cases(self):
         assert CheckoutSolution().checkout("") == 0
