@@ -75,7 +75,10 @@ class CheckoutSolution:
         total = 0
         boughtItemsInOffer = []
 
-        for item in G
+        for item in GROUP_OFFER_ITEMS:
+            boughtItemsInOffer.extend([item] * counts[item])
+        
+        
         return total
 
     # CHK_R2 answer
@@ -99,6 +102,7 @@ class CheckoutSolution:
             total = total + count * PRICES[sku]
 
         return total
+
 
 
 
