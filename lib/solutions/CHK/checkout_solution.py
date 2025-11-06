@@ -59,5 +59,5 @@ class CheckoutSolution:
 
         return total
 
-    def buyMultipleGetOneFreeOffer(self, skuBought: str, skuFree: str):
+    def buyMultipleGetOneFreeOffer(self, skuBought: str, skuFree: str) -> tuple[int, str]:
         print()
