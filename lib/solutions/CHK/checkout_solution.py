@@ -89,9 +89,3 @@ class CheckoutSolution:
             total = total + count * PRICES[sku]
 
         return total
-
-
-
-
-
-
