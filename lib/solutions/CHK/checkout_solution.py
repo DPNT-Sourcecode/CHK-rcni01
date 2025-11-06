@@ -10,7 +10,16 @@ PRICES: Dict[str, int] = {
     "Y": 10, "Z": 50
 }
 
+FREE_OTHER_ITEM: Dict[str, Tuple[int, str]] = {
+    "E": (2, "B"),
+    "N": (3, "M"),
+    "R": (3, "Q")
+}
 
+# number reflects the size of group
+FREE_SAME_ITEM: Dict[str, int] = {
+    "F": 3, 
+}
 
 class CheckoutSolution:
 
@@ -63,3 +72,4 @@ class CheckoutSolution:
             total = total + skuCounts[sku] * PRICES[sku]
 
         return total
+
