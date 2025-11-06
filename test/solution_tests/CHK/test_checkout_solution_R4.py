@@ -59,3 +59,63 @@ class TestCheckout():
 
     def test_correct_return_for_sku_FFFFFF(self):
         assert CheckoutSolution().checkout("FFFFFF") == 40
+
+    def test_correct_return_for_sku_NNNM(self):
+        assert CheckoutSolution().checkout("NNNM") == 120
+
+    def test_correct_return_for_sku_NNNMM(self):
+        assert CheckoutSolution().checkout("NNNMM") == 135
+
+    def test_correct_return_for_sku_RRRQ(self):
+        assert CheckoutSolution().checkout("RRRQ") == 150
+
+    def test_correct_return_for_sku_RRRQQ(self):
+        assert CheckoutSolution().checkout("RRRQQ") == 180
+
+    def test_correct_return_for_sku_UUUU(self):
+        assert CheckoutSolution().checkout("UUUU") == 120
+
+    def test_correct_return_for_sku_UUUUUU(self):
+        assert CheckoutSolution().checkout("UUUUUU") == 200
+
+    def test_correct_return_for_sku_VV(self):
+        assert CheckoutSolution().checkout("VV") == 90
+
+    def test_correct_return_for_sku_VVV(self):
+        assert CheckoutSolution().checkout("VVV") == 130
+
+    def test_correct_return_for_sku_VVVV(self):
+        assert CheckoutSolution().checkout("VVVV") == 180
+
+    def test_correct_return_for_sku_HHHHH(self):
+        assert CheckoutSolution().checkout("HHHHH") == 45
+
+    def test_correct_return_for_sku_HHHHHHHHHH(self):
+        assert CheckoutSolution().checkout("HHHHHHHHHH") == 80
+
+    def test_correct_return_for_sku_KK(self):
+        assert CheckoutSolution().checkout("KK") == 150
+
+    def test_correct_return_for_sku_PPPPP(self):
+        assert CheckoutSolution().checkout("PPPPP") == 200
+
+    def test_correct_return_for_sku_QQQ(self):
+        assert CheckoutSolution().checkout("QQQ") == 80
+
+    def test_correct_return_for_sku_QQQQ(self):
+        assert CheckoutSolution().checkout("QQQQ") == 110
+
+    def test_correct_return_for_sku_EEBB(self):
+        assert CheckoutSolution().checkout("EEBB") == 110
+
+    def test_correct_return_for_sku_AAAAAEEBBNNNM(self):
+        assert CheckoutSolution().checkout("AAAAAEEBBNNNM") == 430
+
+    def test_correct_return_for_sku_STXYZ(self):
+        assert CheckoutSolution().checkout("STXYZ") == 200
+
+    def test_correct_return_for_sku_WWY(self):
+        assert CheckoutSolution().checkout("WWY") == 50
+
+    def test_correct_return_for_sku_AAAAAAFFFFFF(self):
+        assert CheckoutSolution().checkout("AAAAAAFFFFFF") == 290
