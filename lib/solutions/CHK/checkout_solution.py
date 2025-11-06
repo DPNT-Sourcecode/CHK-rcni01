@@ -45,7 +45,7 @@ class CheckoutSolution:
             countF: int = skuCounts["F"]
             groupsOfF: int = math.floor(countF / 3)
             remainder: int = countF - groupsOfF * 3
-            
+            total = total + groupsOfF * 20 + remainder * 10
 
 
         if "B" in skuCounts:
