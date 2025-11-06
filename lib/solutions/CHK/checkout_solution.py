@@ -49,7 +49,7 @@ class CheckoutSolution:
                 count: int = counts[item]
                 groups: int = math.floor(count / groupSize)
                 remainder: int = count - groups * groupSize
-                total = total + groups * PRICES[item] * groupSize + remainder * PRICES[item]
+                total = total + PRICES[item] * (groups * (groupSize) + remainder)
         return total
 
     # CHK_R2 answer
@@ -66,6 +66,7 @@ class CheckoutSolution:
         total: int = 0
 
         self.applyFreeOtherItemOffers(skuCounts)
+        total = total + self.applyFreeSameItemOffers(skuCounts)
 
         if "A" in skuCounts:
             countA: int = skuCounts["A"]
@@ -75,14 +76,7 @@ class CheckoutSolution:
             if remainder >= 3:
                 total = total + 130
                 remainder = remainder - 3
-            total = total + remainder * 50                
-        
-        if "F" in skuCounts:
-            countF: int = skuCounts["F"]
-            groupsOfF: int = math.floor(countF / 3)
-            remainder: int = countF - groupsOfF * 3
-            total = total + groupsOfF * 20 + remainder * 10
-
+            total = total + remainder * 50              
 
         if "B" in skuCounts:
             countB: int = skuCounts["B"]
@@ -94,4 +88,5 @@ class CheckoutSolution:
             total = total + skuCounts[sku] * PRICES[sku]
 
         return total
+
 
