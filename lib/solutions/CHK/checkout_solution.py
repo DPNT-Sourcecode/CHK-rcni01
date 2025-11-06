@@ -35,6 +35,13 @@ MULTIBUY_OFFERS: Dict[str, Tuple[Tuple[int,int], ...]] = {
 
 class CheckoutSolution:
 
+    def applyFreeOtherItemOffers(self, counts: Counter[str]) -> None:
+        for groupedItem, (amountNeeded, freeItem) in FREE_OTHER_ITEM.items():
+            if groupedItem in counts and freeItem in counts:
+                countGrouped: int = counts[groupedItem]
+                freeAmount: int = math.floor(countGrouped / amountNeeded)
+                counts[freeItem] = max(0, counts[freeItem] - freeAmount)
+
     # CHK_R2 answer
     def checkout(self, skus) -> int:
         if type(skus) != str:
@@ -47,7 +54,8 @@ class CheckoutSolution:
         skuCounts: Counter[str] = Counter(skus)
 
         total: int = 0
-        
+
+        self.applyFreeOtherItemOffers(skuCounts)
 
         if "A" in skuCounts:
             countA: int = skuCounts["A"]
@@ -76,12 +84,5 @@ class CheckoutSolution:
             total = total + skuCounts[sku] * PRICES[sku]
 
         return total
-
-    def applyFreeOtherItemOffers(counts: Counter[str]) -> None:
-        for groupedItem, (amountNeeded, freeItem) in FREE_OTHER_ITEM.items():
-            if groupedItem in counts and freeItem in counts:
-                countGrouped: int = counts[groupedItem]
-                freeAmount: int = math.floor(countGrouped / amountNeeded)
-                counts[freeItem] = max(0, counts[freeItem] - freeAmount)
 
 
