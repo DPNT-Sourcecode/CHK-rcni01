@@ -71,7 +71,12 @@ class CheckoutSolution:
                 counts[item] = 0
         return total
 
-    def applyGroupO
+    def applyGroupOffer(self, counts: Counter[str]) -> int:
+        total = 0
+        boughtItemsInOffer = []
+
+        for item in G
+        return total
 
     # CHK_R2 answer
     def checkout(self, skus) -> int:
@@ -94,5 +99,6 @@ class CheckoutSolution:
             total = total + count * PRICES[sku]
 
         return total
+
 
 
