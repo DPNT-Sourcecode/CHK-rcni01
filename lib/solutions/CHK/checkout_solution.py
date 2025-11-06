@@ -79,9 +79,7 @@ class CheckoutSolution:
             boughtItemsInOffer.extend([PRICES[item]] * counts[item])
             counts[item] = 0
         
-        boughtItemsInOffer.sort()
-
-        print(boughtItemsInOffer)
+        boughtItemsInOffer.sort(reverse=True)
 
         while len(boughtItemsInOffer) >= GROUP_OFFER_SIZE:
             total = total + GROUP_OFFER_PRICE
@@ -113,4 +111,5 @@ class CheckoutSolution:
             total = total + count * PRICES[sku]
 
         return total
+
 
