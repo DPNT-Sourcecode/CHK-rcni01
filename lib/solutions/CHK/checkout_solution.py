@@ -59,4 +59,5 @@ class CheckoutSolution:
 
         return total
 
-    def buyMultipleGetSameFree
+    def buyMultipleGetOneFreeOffer(self, skuBought: str, skuFree: str):
+        print()
