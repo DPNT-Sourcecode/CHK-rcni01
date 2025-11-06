@@ -47,6 +47,7 @@ class CheckoutSolution:
         skuCounts: Counter[str] = Counter(skus)
 
         total: int = 0
+        
 
         if "A" in skuCounts:
             countA: int = skuCounts["A"]
@@ -57,11 +58,6 @@ class CheckoutSolution:
                 total = total + 130
                 remainder = remainder - 3
             total = total + remainder * 50                
-        
-        if "E" in skuCounts and "B" in skuCounts:
-            countE: int = skuCounts["E"]
-            freeB: int = math.floor(countE / 2)
-            skuCounts["B"] = max(0, skuCounts["B"] - freeB)
         
         if "F" in skuCounts:
             countF: int = skuCounts["F"]
@@ -82,6 +78,10 @@ class CheckoutSolution:
         return total
 
     def applyFreeOtherItemOffers(counts: Counter[str]) -> None:
-        for groupedItem, (amountNeeded, freeItem) in 
+        for groupedItem, (amountNeeded, freeItem) in FREE_OTHER_ITEM.items():
+            if groupedItem in counts and freeItem in counts:
+                countGrouped: int = counts[groupedItem]
+                freeAmount: int = math.floor(countGrouped / amountNeeded)
+                counts[freeItem] = max(0, counts[freeItem] - freeAmount)
 
 
