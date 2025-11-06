@@ -44,7 +44,12 @@ class CheckoutSolution:
     
     def applyFreeSameItemOffers(self, counts: Counter[str]) -> int:
         total = 0
-        for item
+        for item, groupSize in FREE_SAME_ITEM.items():
+            if item in counts:
+                count: int = counts[item]
+                groups: int = math.floor(count / groupSize)
+                remainder: int = count - groups * groupSize
+                total = total + groups * PRICES[item] * groupSize + remainder * PRICES[item]
         return total
 
     # CHK_R2 answer
@@ -89,3 +94,4 @@ class CheckoutSolution:
             total = total + skuCounts[sku] * PRICES[sku]
 
         return total
+
