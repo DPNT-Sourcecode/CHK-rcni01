@@ -49,7 +49,15 @@ class CheckoutSolution:
                 count: int = counts[item]
                 groups: int = math.floor(count / groupSize)
                 remainder: int = count - groups * groupSize
-                total = total + PRICES[item] * (groups * (groupSize) + remainder)
+                total = total + PRICES[item] * (groups * (groupSize - 1) + remainder)
+        return total
+    
+    def applyMultiBuyOffers(self, counts: Counter[str]) -> int:
+        total = 0
+        for item, offers in MULTIBUY_OFFERS.items():
+            if item in counts:
+                count = counts[item]
+                
         return total
 
     # CHK_R2 answer
@@ -88,5 +96,6 @@ class CheckoutSolution:
             total = total + skuCounts[sku] * PRICES[sku]
 
         return total
+
 
 
