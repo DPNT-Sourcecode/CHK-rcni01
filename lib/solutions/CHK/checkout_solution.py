@@ -73,16 +73,20 @@ class CheckoutSolution:
 
     def applyGroupOffer(self, counts: Counter[str]) -> int:
         total = 0
-        boughtItemsInOffer = []
+        boughtItemsInOffer: List[int] = []
 
         for item in GROUP_OFFER_ITEMS:
             boughtItemsInOffer.extend([PRICES[item]] * counts[item])
+            counts[item] = 0
         
         boughtItemsInOffer.sort()
 
         while len(boughtItemsInOffer) >= GROUP_OFFER_SIZE:
             total = total + GROUP_OFFER_PRICE
+            for _ in range(GROUP_OFFER_SIZE):
+                boughtItemsInOffer.pop(0)
 
+        total = total + sum(boughtItemsInOffer)
         return total
 
     # CHK_R2 answer
@@ -106,3 +110,4 @@ class CheckoutSolution:
             total = total + count * PRICES[sku]
 
         return total
+
