@@ -28,13 +28,15 @@ MULTIBUY_OFFERS: Dict[str, Tuple[Tuple[int,int], ...]] = {
     "A": ((5, 200), (3, 130)),
     "B": ((2, 45),),
     "H": ((10, 80), (5, 45)),
-    "K": ((2, 150),),
+    "K": ((2, 120),),
     "P": ((5, 200),),
     "Q": ((3, 80),),
     "V": ((3, 130), (2, 90))
 }
 
 GROUP_OFFER_ITEMS: List[str] = ["S", "T", "X", "Y", "Z"]
+GROUP_OFFER_PRICE: int = 45
+GROUP_OFFER_SIZE: int = 3
 
 class CheckoutSolution:
 
@@ -69,6 +71,8 @@ class CheckoutSolution:
                 counts[item] = 0
         return total
 
+    def applyGroupO
+
     # CHK_R2 answer
     def checkout(self, skus) -> int:
         if type(skus) != str:
@@ -90,4 +94,5 @@ class CheckoutSolution:
             total = total + count * PRICES[sku]
 
         return total
+
 
