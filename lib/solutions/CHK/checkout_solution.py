@@ -10,7 +10,7 @@ PRICES: Dict[str, int] = {
     "Y": 10, "Z": 50
 }
 
-
+# Buy multiple get another item free offer: number is how much you need to buy to get the nested item free.
 FREE_OTHER_ITEM: Dict[str, Tuple[int, str]] = {
     "E": (2, "B"),
     "N": (3, "M"),
@@ -23,7 +23,7 @@ FREE_SAME_ITEM: Dict[str, int] = {
     "U": 4 
 }
 
-# MultiBuy offers, have ordered the offers, so the better offer comes first. Important for later.
+# MultiBuy offers : have ordered the offers, so the better offer comes first. Important for later.
 MULTIBUY_OFFERS: Dict[str, Tuple[Tuple[int,int], ...]] = {
     "A": ((5, 200), (3, 130)),
     "B": ((2, 45),),
@@ -52,6 +52,7 @@ class CheckoutSolution:
                 groups: int = math.floor(count / groupSize)
                 remainder: int = count - groups * groupSize
                 total = total + PRICES[item] * (groups * (groupSize - 1) + remainder)
+                counts[item] = 0
         return total
     
     def applyMultiBuyOffers(self, counts: Counter[str]) -> int:
@@ -84,10 +85,11 @@ class CheckoutSolution:
         total = total + self.applyFreeSameItemOffers(skuCounts)
         total = total + self.applyMultiBuyOffers(skuCounts)
 
-        for sku in ["C", "D", "E"]:
-            total = total + skuCounts[sku] * PRICES[sku]
+        for sku, count in skuCounts.items():
+            total = total + count * PRICES[sku]
 
         return total
+
 
 
 
