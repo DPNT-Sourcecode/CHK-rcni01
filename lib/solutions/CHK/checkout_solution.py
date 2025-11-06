@@ -24,11 +24,11 @@ FREE_SAME_ITEM: Dict[str, int] = {
 
 MULTIBUY_OFFERS: Dict[str, Tuple[Tuple[int,int], ...]] = {
     "A": ((5, 200), (3, 130)),
-    "B": ((2, 45),),
+    "B": ((2, 45)),
     "H": ((10, 80), (5, 45)),
-    "K": ((2, 150),),
-    "P": ((5, 200),),
-    "Q": ((3, 80),),
+    "K": ((2, 150)),
+    "P": ((5, 200)),
+    "Q": ((3, 80)),
     "V": ((3, 130), (2, 90))
 }
 
@@ -40,8 +40,6 @@ class CheckoutSolution:
         if type(skus) != str:
             return -1
         
-
-
         for sku in skus:
             if sku not in PRICES:
                 return -1
@@ -82,5 +80,8 @@ class CheckoutSolution:
             total = total + skuCounts[sku] * PRICES[sku]
 
         return total
+
+    def applyFreeOtherItemOffers(counts: Counter[str]) -> None:
+        for groupedItem, (amountNeeded, freeItem) in 
 
 
