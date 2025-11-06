@@ -16,14 +16,24 @@ FREE_OTHER_ITEM: Dict[str, Tuple[int, str]] = {
     "R": (3, "Q")
 }
 
-# number reflects the size of group
+# number reflects the size required to get a free item. e.g. you need 3 F to get one of them free
 FREE_SAME_ITEM: Dict[str, int] = {
-    "F": 3, 
+    "F": 3,
+    "U": 4 
 }
 
+MULTIBUY_OFFERS: Dict[str, Tuple[Tuple[int,int], ...]] = {
+    "A": ((5, 200), (3, 130)),
+    "B": ((2, 45),),
+    "H": ((10, 80), (5, 45)),
+    "K": ((2, 150),),
+    "P": ((5, 200),),
+    "Q": ((3, 80),),
+    "V": ((3, 130), (2, 90))
+}
+
+
 class CheckoutSolution:
-
-
 
     # CHK_R2 answer
     def checkout(self, skus) -> int:
@@ -72,4 +82,5 @@ class CheckoutSolution:
             total = total + skuCounts[sku] * PRICES[sku]
 
         return total
+
 
