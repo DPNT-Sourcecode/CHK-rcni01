@@ -119,4 +119,3 @@ class TestCheckout():
 
     def test_correct_return_for_sku_AAAAAAFFFFFF(self):
         assert CheckoutSolution().checkout("AAAAAAFFFFFF") == 290
-
