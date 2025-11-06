@@ -42,6 +42,9 @@ class CheckoutSolution:
             skuCounts["B"] = max(0, skuCounts["B"] - freeB)
         
         if "F" in skuCounts:
+            countF: int = skuCounts["F"]
+            groupsOfF: int = math.floor(countF / 3)
+            remainder: int = countF - groupsOfF * 3
             
 
 
@@ -55,3 +58,4 @@ class CheckoutSolution:
             total = total + skuCounts[sku] * prices[sku]
 
         return total
+
