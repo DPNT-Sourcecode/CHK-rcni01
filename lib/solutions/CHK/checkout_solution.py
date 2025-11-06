@@ -15,7 +15,7 @@ class CheckoutSolution:
             "C": 20,
             "D": 15,
             "E": 40,
-            "F": 10
+            "F": 10,
         }
 
         for sku in skus:
@@ -59,6 +59,4 @@ class CheckoutSolution:
 
         return total
 
-    
-
-
+    def buyMultipleGetSameFree
