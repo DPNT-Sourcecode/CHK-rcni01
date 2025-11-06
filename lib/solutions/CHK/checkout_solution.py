@@ -81,6 +81,8 @@ class CheckoutSolution:
         
         boughtItemsInOffer.sort()
 
+        print(boughtItemsInOffer)
+
         while len(boughtItemsInOffer) >= GROUP_OFFER_SIZE:
             total = total + GROUP_OFFER_PRICE
             for _ in range(GROUP_OFFER_SIZE):
@@ -105,6 +107,7 @@ class CheckoutSolution:
         self.applyFreeOtherItemOffers(skuCounts)
         total = total + self.applyFreeSameItemOffers(skuCounts)
         total = total + self.applyMultiBuyOffers(skuCounts)
+        total = total + self.applyGroupOffer(skuCounts)
 
         for sku, count in skuCounts.items():
             total = total + count * PRICES[sku]
