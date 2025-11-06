@@ -10,25 +10,27 @@ PRICES: Dict[str, int] = {
     "Y": 10, "Z": 50
 }
 
+
 FREE_OTHER_ITEM: Dict[str, Tuple[int, str]] = {
     "E": (2, "B"),
     "N": (3, "M"),
     "R": (3, "Q")
 }
 
-# number reflects the size required to get a free item. e.g. you need 3 F to get one of them free
+# Buy multiple get one free offer : number reflects the size required to get a free item. e.g. you need 3 F to get one of them free
 FREE_SAME_ITEM: Dict[str, int] = {
     "F": 3,
     "U": 4 
 }
 
+# MultiBuy offers, have ordered the offers, so the better offer comes first. Important for later.
 MULTIBUY_OFFERS: Dict[str, Tuple[Tuple[int,int], ...]] = {
     "A": ((5, 200), (3, 130)),
-    "B": ((2, 45)),
+    "B": ((2, 45),),
     "H": ((10, 80), (5, 45)),
-    "K": ((2, 150)),
-    "P": ((5, 200)),
-    "Q": ((3, 80)),
+    "K": ((2, 150),),
+    "P": ((5, 200),),
+    "Q": ((3, 80),),
     "V": ((3, 130), (2, 90))
 }
 
@@ -61,7 +63,8 @@ class CheckoutSolution:
                     offerGroups: int = math.floor(count / qty)
                     total = total + offerGroups * offerPrice
                     count = count - offerGroups * qty
-                
+                total = total + count * PRICES[item]
+                counts[item] = 0
         return total
 
     # CHK_R2 answer
@@ -79,27 +82,13 @@ class CheckoutSolution:
 
         self.applyFreeOtherItemOffers(skuCounts)
         total = total + self.applyFreeSameItemOffers(skuCounts)
-
-        if "A" in skuCounts:
-            countA: int = skuCounts["A"]
-            firstOfferGroups: int = math.floor(countA / 5)
-            total = total + firstOfferGroups * 200
-            remainder: int = countA - firstOfferGroups * 5
-            if remainder >= 3:
-                total = total + 130
-                remainder = remainder - 3
-            total = total + remainder * 50              
-
-        if "B" in skuCounts:
-            countB: int = skuCounts["B"]
-            offerGroups: int = math.floor(countB / 2)
-            remainder: int = countB - offerGroups * 2
-            total = total + offerGroups * 45 + remainder * 30
+        total = total + self.applyMultiBuyOffers(skuCounts)
 
         for sku in ["C", "D", "E"]:
             total = total + skuCounts[sku] * PRICES[sku]
 
         return total
+
 
 
 
