@@ -56,7 +56,11 @@ class CheckoutSolution:
         total = 0
         for item, offers in MULTIBUY_OFFERS.items():
             if item in counts:
-                count = counts[item]
+                count: int = counts[item]
+                for qty, offerPrice in offers:
+                    offerGroups: int = math.floor(count / qty)
+                    total = total + offerGroups * offerPrice
+                    count = count - offerGroups * qty
                 
         return total
 
@@ -96,6 +100,7 @@ class CheckoutSolution:
             total = total + skuCounts[sku] * PRICES[sku]
 
         return total
+
 
 
 
