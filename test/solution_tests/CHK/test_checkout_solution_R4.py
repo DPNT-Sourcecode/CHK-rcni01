@@ -1,4 +1,4 @@
-from lib.solutions.CHK.checkout_solution import CheckoutSolution
+from lib.solutions.CHK.checkout_solution_R4 import CheckoutSolution
 
 class TestCheckout():
 
@@ -119,3 +119,4 @@ class TestCheckout():
 
     def test_correct_return_for_sku_AAAAAAFFFFFF(self):
         assert CheckoutSolution().checkout("AAAAAAFFFFFF") == 290
+
