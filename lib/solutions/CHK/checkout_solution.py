@@ -41,6 +41,11 @@ class CheckoutSolution:
                 countGrouped: int = counts[groupedItem]
                 freeAmount: int = math.floor(countGrouped / amountNeeded)
                 counts[freeItem] = max(0, counts[freeItem] - freeAmount)
+    
+    def applyFreeSameItemOffers(self, counts: Counter[str]) -> int:
+        total = 0
+        for item
+        return total
 
     # CHK_R2 answer
     def checkout(self, skus) -> int:
@@ -84,5 +89,3 @@ class CheckoutSolution:
             total = total + skuCounts[sku] * PRICES[sku]
 
         return total
-
-

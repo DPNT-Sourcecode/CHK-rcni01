@@ -6,8 +6,8 @@ class TestCheckout():
         assert CheckoutSolution().checkout(123) == -1
 
     def test_correct_return_for_incorrect_letters(self):
-        assert CheckoutSolution().checkout("TGH") == -1
-        assert CheckoutSolution().checkout("AABCDFG") == -1
+        assert CheckoutSolution().checkout("T2GH") == -1
+        assert CheckoutSolution().checkout("AAB-CDFG") == -1
 
     def test_correct_return_for_sku_AAAAAAAA(self):
         assert CheckoutSolution().checkout("AAAAAAAA") == 330
@@ -54,5 +54,8 @@ class TestCheckout():
     def test_correct_return_for_sku_FFFFF(self):
         assert CheckoutSolution().checkout("FFFFF") == 40
     
+    def test_correct_return_for_sku_FFFFFF(self):
+        assert CheckoutSolution().checkout("FFFFFF") == 40
+
     def test_correct_return_for_sku_FFFFFF(self):
         assert CheckoutSolution().checkout("FFFFFF") == 40
